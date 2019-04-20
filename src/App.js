@@ -12,14 +12,20 @@ class App extends Component {
     }
   };
 
-  
+
 
 
   render() {
 
     const updateTodos = (newTodo, cb) => {
-      this.setState({todo: newTodo,},()=>{console.log("updated State in App",this.state.todo )});
+      this.setState({ todo: newTodo, }, () => { console.log("updated State in App", this.state.todo) });
       cb();
+    }
+
+    const deleteTask = (i) => {
+      const deletedList = [...this.state.todo];
+      deletedList.splice(i, 1);
+      this.setState({ todo: deletedList, }, () => { console.log("deleted State in App", this.state.todo) })
     }
 
 
@@ -33,11 +39,11 @@ class App extends Component {
 
         <Routes />
 
-        <InputForm todo={this.state.todo} hitIt={updateTodos}/>
+        <InputForm todo={this.state.todo} hitIt={updateTodos} />
 
         <h4>Total tasks = {this.state.todo.length}</h4>
 
-        <DisplayList todo={this.state.todo} />
+        <DisplayList todo={this.state.todo} deleteTask={deleteTask}/>
 
       </div>
     );

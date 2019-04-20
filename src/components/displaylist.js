@@ -18,7 +18,7 @@ class DisplayList extends Component {
             return (
                 <span>
                     <button>Update</button>
-                    <button>Delete</button>
+                    <button onClick={(i) => this.props.deleteTask(i)}>Delete</button>
                 </span>
             )
         }
