@@ -8,34 +8,36 @@ class DisplayList extends Component {
         }
     };
 
-    componentWillReceiveProps(newProps){
+    componentWillReceiveProps(newProps) {
         //alert(JSON.stringify(newProps));
     }
 
     render() {
 
-        
 
-        return (
-            <div>
-                <table border='1'>
-                    <thead>
-                        <tr>
-                            <th>Task Name</th>
-                            <th>Task Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.props.todo.map((todo,i)=>{
-                            return <tr key={i}>
-                                <td>{todo.task}</td>
-                                <td>{todo.desc}</td>
+        if (this.props.todo.length) {
+            return (
+                <div>
+                    <table border='1'>
+                        <thead>
+                            <tr>
+                                <th>Task Name</th>
+                                <th>Task Description</th>
                             </tr>
-                        })}
-                    </tbody>
-                </table>
-            </div>
-        );
+                        </thead>
+                        <tbody>
+                            {this.props.todo.map((todo, i) => {
+                                return <tr key={i}>
+                                    <td>{todo.task}</td>
+                                    <td>{todo.desc}</td>
+                                </tr>
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+        else return '';
     }
 }
 
