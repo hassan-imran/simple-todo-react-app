@@ -5,37 +5,21 @@ class InputForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputTask: "",
-      inputDesc: "",
     }
   };
 
 
   render() {
 
-    const onChangeHandler = (propName, propValue, ev) => {
-      this.setState({ [propName]: propValue, }, () => console.log("Task: " + this.state.inputTask + ", Description: " + this.state.inputDesc))
-        ;
-    }
-
-    const addTodo = (e) => {
-      e.preventDefault();
-      const newTodos = [...this.props.todo, {
-        task: this.state.inputTask,
-        desc: this.state.inputDesc
-      }]
-      this.props.hitIt(newTodos, () => this.setState({ inputTask : "", inputDesc : "", }));
-    }
-
     return (
       <div>
 
-        <form onSubmit={(e) => addTodo(e)}>
-          <input type="text" value={this.state.inputTask} onChange={(ev) => { onChangeHandler("inputTask", ev.target.value) }} />
+        <form onSubmit={(e) => this.props.addTodo(e)}>
+          <input type="text" value={this.props.inputTask} onChange={(ev) => { this.props.onChangeHandler("inputTask", ev.target.value) }} />
 
           <br />
 
-          <input type="text" value={this.state.inputDesc} onChange={(ev) => { onChangeHandler("inputDesc", ev.target.value) }} />
+          <input type="text" value={this.props.inputDesc} onChange={(ev) => { this.props.onChangeHandler("inputDesc", ev.target.value) }} />
 
           <br />
 

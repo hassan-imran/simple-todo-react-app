@@ -9,6 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       todo: [],
+      inputTask: "",
+      inputDesc: "",
     }
   };
 
@@ -28,6 +30,28 @@ class App extends Component {
       this.setState({ todo: deletedList, }, () => { console.log("deleted State in App", this.state.todo) })
     }
 
+    const editTask = (i) => {
+      const editedList = [...this.state.todo];
+      const a = editedList[i].task;
+      const b = editedList[i].desc;
+      editedList.splice(i, 1);
+      this.setState({ todo: editedList, }, () => { console.log("edited State in App", this.state.todo) })
+    }
+
+    const onChangeHandler = (propName, propValue, ev) => {
+      this.setState({ [propName]: propValue, }, () => console.log("Task: " + this.state.inputTask + ", Description: " + this.state.inputDesc))
+        ;
+    }
+
+    const addTodo = (e) => {
+      e.preventDefault();
+      const newTodos = [...this.state.todo, {
+        task: this.state.inputTask,
+        desc: this.state.inputDesc
+      }]
+      updateTodos(newTodos, () => this.setState({ inputTask: "", inputDesc: "", }));
+    }
+
 
     return (
       <div className="App">
@@ -39,11 +63,11 @@ class App extends Component {
 
         <Routes />
 
-        <InputForm todo={this.state.todo} hitIt={updateTodos} />
+        <InputForm todo={this.state.todo} onChangeHandler={onChangeHandler} addTodo={addTodo} inputTask={this.state.inputTask} inputDesc={this.state.inputDesc} />
 
         <h4>Total tasks = {this.state.todo.length}</h4>
 
-        <DisplayList todo={this.state.todo} deleteTask={deleteTask}/>
+        <DisplayList todo={this.state.todo} deleteTask={deleteTask} editTask={editTask} />
 
       </div>
     );
