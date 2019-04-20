@@ -18,7 +18,8 @@ class InputForm extends Component {
         ;
     }
 
-    const addTodo = () => {
+    const addTodo = (e) => {
+      e.preventDefault();
       this.props.todo.push({
         task: this.state.inputTask,
         desc: this.state.inputDesc
@@ -30,16 +31,17 @@ class InputForm extends Component {
     return (
       <div>
 
-        <input type="text" value={this.state.inputTask} onChange={(ev) => { onChangeHandler("inputTask", ev.target.value) }} />
+        <form onSubmit={(e) => addTodo(e) }>
+          <input type="text" value={this.state.inputTask} onChange={(ev) => { onChangeHandler("inputTask", ev.target.value) }} />
 
-        <br />
+          <br />
 
-        <input type="text" value={this.state.inputDesc} onChange={(ev) => { onChangeHandler("inputDesc", ev.target.value) }} />
+          <input type="text" value={this.state.inputDesc} onChange={(ev) => { onChangeHandler("inputDesc", ev.target.value) }} />
 
-        <br />
+          <br />
 
-        <button onClick={() => addTodo()}>Add</button>
-
+          <button type='submit'>Add</button>
+        </form>
       </div>
     );
   }
