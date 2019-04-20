@@ -17,8 +17,8 @@ class DisplayList extends Component {
         const actions = (i) => {
             return (
                 <span>
-                    <button onClick={(i) => this.props.editTask(i)}>Update</button>
-                    <button onClick={(i) => this.props.deleteTask(i)}>Delete</button>
+                    <button onClick={() => this.props.editTask(i)}>Update</button>
+                    <button onClick={() => this.props.deleteTask(i)}>Delete</button>
                 </span>
             )
         }

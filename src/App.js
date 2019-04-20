@@ -35,7 +35,7 @@ class App extends Component {
       const a = editedList[i].task;
       const b = editedList[i].desc;
       editedList.splice(i, 1);
-      this.setState({ todo: editedList, }, () => { console.log("edited State in App", this.state.todo) })
+      this.setState({ inputTask: a, inputDesc: b, todo: editedList, }, () => { console.log("edited State in App", this.state.todo) })
     }
 
     const onChangeHandler = (propName, propValue, ev) => {
