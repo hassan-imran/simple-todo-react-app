@@ -23,26 +23,26 @@ class InputForm extends Component {
         task: this.state.inputTask,
         desc: this.state.inputDesc
       });
-      this.props.hitIt(this.props.todo, ()=>{this.state.inputTask="";this.state.inputDesc="";});
-      
-      }
+      this.props.hitIt(this.props.todo, () => { this.state.inputTask = ""; this.state.inputDesc = ""; });
+
+    }
 
     return (
-        <div>
+      <div>
 
-          <input type="text" value={this.state.inputTask} onChange={(ev) => { onChangeHandler("inputTask", ev.target.value) }} />
+        <input type="text" value={this.state.inputTask} onChange={(ev) => { onChangeHandler("inputTask", ev.target.value) }} />
 
-          <br />
+        <br />
 
-          <input type="text" value={this.state.inputDesc} onChange={(ev) => { onChangeHandler("inputDesc", ev.target.value) }} />
+        <input type="text" value={this.state.inputDesc} onChange={(ev) => { onChangeHandler("inputDesc", ev.target.value) }} />
 
-          <br />
+        <br />
 
-          <button onClick={() => addTodo()}>Add</button>
+        <button onClick={() => addTodo()}>Add</button>
 
-        </div>
-      );
-    }
+      </div>
+    );
   }
+}
 
-  export default InputForm;
+export default InputForm;

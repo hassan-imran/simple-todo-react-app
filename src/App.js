@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Routes from './Routes';
 import InputForm from './components/inputForm';
+import DisplayList from './components/displaylist';
 
 class App extends Component {
 
@@ -34,9 +35,9 @@ class App extends Component {
 
         <InputForm todo={this.state.todo} hitIt={updateTodos}/>
 
-        <br/><br/>
-
         <h4>Total tasks = {this.state.todo.length}</h4>
+
+        <DisplayList todo={this.state.todo} />
 
       </div>
     );
