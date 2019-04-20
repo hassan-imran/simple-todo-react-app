@@ -23,7 +23,7 @@ class InputForm extends Component {
         task: this.state.inputTask,
         desc: this.state.inputDesc
       });
-      this.props.hitIt(this.props.todo);
+      this.props.hitIt(this.props.todo, ()=>{this.state.inputTask="";this.state.inputDesc="";});
       
       }
 
