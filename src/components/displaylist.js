@@ -27,7 +27,7 @@ class DisplayList extends Component {
                     </thead>
                     <tbody>
                         {this.props.todo.map((todo,i)=>{
-                            return <tr>
+                            return <tr key={i}>
                                 <td>{todo.task}</td>
                                 <td>{todo.desc}</td>
                             </tr>
