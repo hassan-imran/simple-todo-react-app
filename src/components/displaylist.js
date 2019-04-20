@@ -14,6 +14,15 @@ class DisplayList extends Component {
 
     render() {
 
+        const actions = (i) => {
+            return (
+                <span>
+                    <button>Update</button>
+                    <button>Delete</button>
+                </span>
+            )
+        }
+
 
         if (this.props.todo.length) {
             return (
@@ -23,6 +32,7 @@ class DisplayList extends Component {
                             <tr>
                                 <th>Task Name</th>
                                 <th>Task Description</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +40,7 @@ class DisplayList extends Component {
                                 return <tr key={i}>
                                     <td>{todo.task}</td>
                                     <td>{todo.desc}</td>
+                                    <td>{actions(i)}</td>
                                 </tr>
                             })}
                         </tbody>
