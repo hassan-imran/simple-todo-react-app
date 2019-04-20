@@ -20,18 +20,17 @@ class InputForm extends Component {
 
     const addTodo = (e) => {
       e.preventDefault();
-      this.props.todo.push({
+      const newTodos = [...this.props.todo, {
         task: this.state.inputTask,
         desc: this.state.inputDesc
-      });
-      this.props.hitIt(this.props.todo, () => { this.state.inputTask = ""; this.state.inputDesc = ""; });
-
+      }]
+      this.props.hitIt(newTodos, () => this.setState({ inputTask : "", inputDesc : "", }));
     }
 
     return (
       <div>
 
-        <form onSubmit={(e) => addTodo(e) }>
+        <form onSubmit={(e) => addTodo(e)}>
           <input type="text" value={this.state.inputTask} onChange={(ev) => { onChangeHandler("inputTask", ev.target.value) }} />
 
           <br />
