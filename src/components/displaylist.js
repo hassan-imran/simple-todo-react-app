@@ -8,20 +8,30 @@ class DisplayList extends Component {
         }
     };
 
+    componentWillReceiveProps(newProps){
+        //alert(JSON.stringify(newProps));
+    }
 
     render() {
+
+        
 
         return (
             <div>
                 <table border='1'>
                     <thead>
                         <tr>
-                            <th>Task Number</th>
+                            <th>Task Name</th>
                             <th>Task Description</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        {this.props.todo.map((todo,i)=>{
+                            return <tr>
+                                <td>{todo.task}</td>
+                                <td>{todo.desc}</td>
+                            </tr>
+                        })}
                     </tbody>
                 </table>
             </div>
