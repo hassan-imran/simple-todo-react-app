@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Routes from './Routes';
+import Routes from './components/Routes';
 import InputForm from './components/inputForm';
 import DisplayList from './components/displaylist';
 

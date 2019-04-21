@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Home from './components/home';
+import Home from './home';
+import About from './about';
+import DisplayList from './displaylist';
+import User from './user';
 
 class Routes extends Component {
   render() {
