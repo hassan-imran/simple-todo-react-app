@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/home';
 import About from './components/about';
 import User from './components/user';
-import App from './App'
+import App from './App';
+import Users from './components/users';
 
 
 
@@ -27,6 +28,9 @@ class Routes extends Component {
                 <li>
                   <Link to="/user/">User</Link>
                 </li>
+                <li>
+                  <Link to="/users/123">User123</Link>
+                </li>
               </ul>
             </nav>
 
@@ -34,6 +38,7 @@ class Routes extends Component {
             <Route path='/about/' exact component={About} />
             <Route path='/app/' exact component={App} />
             <Route path='/user/' component={User} />
+            <Route path='/users/:id' component={Users} />
 
           </div>
 
