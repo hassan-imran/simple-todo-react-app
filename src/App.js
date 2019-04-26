@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Routes from './components/Routes';
+//import Routes from './Routes';
 import InputForm from './components/inputForm';
 import DisplayList from './components/displaylist';
 
@@ -60,8 +60,6 @@ class App extends Component {
           <h1>Todo Application</h1>
 
         </header>
-
-        <Routes />
 
         <InputForm todo={this.state.todo} onChangeHandler={onChangeHandler} addTodo={addTodo} inputTask={this.state.inputTask} inputDesc={this.state.inputDesc} />
 
